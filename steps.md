@@ -66,9 +66,10 @@ services:
   phpmyadmin:
      image: phpmyadmin/phpmyadmin:4.7
      ports:
-      - 8080:8080
+      - 8080:80
      depends_on:
        - "db"
+     command: ["./wait-for-it.sh", "db:3306", "--", "python", "app.py"]
      environment:
        PMA_HOST: db
      
