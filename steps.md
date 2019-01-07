@@ -188,7 +188,7 @@ touch docker-compose.yml
     #
     location ~ \.php$ {
         root           /var/www/html;
-        fastcgi_pass   172.27.0.5:9000;
+        fastcgi_pass   wordpress-new:9000;#if cantwork work IP instead wordpress-new
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         include        fastcgi_params;
