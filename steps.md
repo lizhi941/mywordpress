@@ -145,6 +145,12 @@ networks:
   nfsserver_net1:
      external: true
 ```
+1.3 start
+```
+sudo docker-compose up
+```
+
+
 # Step four:  Build nginx
 1.1 create a docker-compose.yml and ngix,conf
 ```
@@ -225,4 +231,21 @@ services:
 networks:
    nfsserver_net1:
       external: true
+```
+1.4 start
+```
+sudo docker-compose up
+
+````
+
+1.5 install nfs-clinet
+
+```
+# entance nginx container
+docker exec -it nginx /bin/bash
+
+# install some softwave
+apt-get -y update && apt-get -y install rpcbind nfs-common nfs4-acl-tools  vim
+
+
 ```
