@@ -1,3 +1,11 @@
+# System parameter
+1. Plat：azure
+  操作系统：Distributor ID: Ubuntu
+  Description:    Ubuntu 16.04.5 LTS
+  Release:        16.04
+  Codename:       xenial
+2. Docker-ce=17.03.2~ce
+
 # Step one:  Build one nfs-server
 
 1.1 create a docker-compose.yml
@@ -76,6 +84,10 @@ services:
 volumes:
   mydb-data:
 
+networks:
+  net1:
+    driver: bridge
+
 ```
 1.3 start
 ```
@@ -85,5 +97,34 @@ sudo docker-compose up
 
 sudo docker volume ls
 
+```
+# Step three:  Build wordpress
+1.1 create a docker-compose.yml
+```
+mkdir wordpress
+
+cd wordpress
+
+vi docker-compose.yml
+```
+1.2 copy the content of below into the docker-compose.yml
+
+```
+version: '2.0'
+
+services:
+
+  wordpress-new:
+    image: wordpress:5.0.0-php7.2-fpm
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: 123456
+      WORDPRESS_DB_NAME: wordpress_new
+
+networks:
+  net1:
+    driver: bridge
 ```
 
