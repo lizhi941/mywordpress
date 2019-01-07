@@ -49,7 +49,15 @@ sudo docker-compose up
 
 sudo docker volume ls
 
+# insect the networks
+
+sudo docker network ls
+
 ```
+you will find the “net1” network is show “nfsserver_net1” in the screen,so
+
+if you want to use this network, you should use “nfsserver_net1”
+
 
 # Step two:  Build one mysql and phpmyadmin
 1.1 create a docker-compose.yml
@@ -76,7 +84,8 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: 123456
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
-  
+  networks:
+       -  nfsserver_net1
   phpmyadmin:
      image: phpmyadmin/phpmyadmin:4.7
      ports:
@@ -85,14 +94,15 @@ services:
        - "db"
      environment:
        PMA_HOST: db
-     
+  networks:
+       -  nfsserver_net1
 
 volumes:
   mydb-data:
 
 networks:
-  net1:
-    driver: bridge
+  nfsserver_net1:
+     external: true
 
 ```
 1.3 start
@@ -128,9 +138,10 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: 123456
       WORDPRESS_DB_NAME: wordpress_new
-
+    networks:
+       -  nfsserver_net1
 networks:
-  net1:
-    driver: bridge
+  nfsserver_net1:
+     external: true
 ```
 
