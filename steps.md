@@ -30,9 +30,15 @@ services:
        -   nfs-share:/nfsshare
      environment:
        SHARED_DIRECTORY: /nfsshare
+     networks:
+       -  net1
 
 volumes:
   nfs-share:
+
+networks:
+  net1:
+    driver: bridge
 
 ```
 1.3 start
