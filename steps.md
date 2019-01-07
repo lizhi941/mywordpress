@@ -149,6 +149,52 @@ networks:
 ```
 sudo docker-compose up
 ```
+1.4  install nfs-clinet and mount
+
+```
+# entance wordpress container
+sudo docker exec -it container_name /bin/bash
+
+# mkdir a directory for mount 
+mkdir -p /var/www/myhtml
+
+
+# install some softwave
+apt-get -y update && apt-get -y install rpcbind nfs-common nfs4-acl-tools  vim
+
+# config nfs-clinet
+
+vim /etc/default/nfs-common
+
+NEED_STATD=no
+STATDOPTS=
+NEED_IDMAPD=yes
+NEED_GSSD=no
+
+# start 
+ 
+service rpcbind start  #have error information,but it still work well
+
+service nfs-common start
+
+
+# Configure the mount point in /etc/fstab:
+# you must look for the ip addr before in nfs-server
+
+vim /etc/fstab
+
+172.27.0.2:/  /var/www/myhtml  nfs4  sec=sys,noatime  0  0
+
+# mount and vertify
+
+mount -a
+
+df -h
+
+```
+
+
+
 
 
 # Step four:  Build nginx
@@ -239,14 +285,14 @@ sudo docker-compose up
 
 ````
 
-1.5 install nfs-clinet
+1.5 install nfs-clinet and mount
 
 ```
 # entance nginx container
 sudo docker exec -it container_name /bin/bash
 
 # mkdir a directory for mount 
-mkdir -p /var/www/html
+mkdir -p /var/www/myhtml
 
 
 # install some softwave
@@ -273,7 +319,7 @@ service nfs-common start
 
 vim /etc/fstab
 
-172.27.0.2:/  /var/www/html  nfs4  sec=sys,noatime  0  0
+172.27.0.2:/  /var/www/myhtml  nfs4  sec=sys,noatime  0  0
 
 # mount and vertify
 
