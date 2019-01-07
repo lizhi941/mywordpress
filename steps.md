@@ -172,7 +172,8 @@ touch docker-compose.yml
     #access_log  /var/log/nginx/host.access.log  main;
 
     location / {
-        root   /usr/share/nginx/html;
+        #root   /usr/share/nginx/html;
+        root   /var/www/html;
         index  index.html index.htm;
     }
 
@@ -272,6 +273,12 @@ service nfs-common start
 
 vim /etc/fstab
 
-192.168.1.1:/  /data  nfs4  sec=sys,noatime  0  0
+172.27.0.2:/  /var/www/html  nfs4  sec=sys,noatime  0  0
+
+# mount and vertify
+
+mount -a
+
+df -h
 
 ```
