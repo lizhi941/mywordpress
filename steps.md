@@ -215,7 +215,7 @@ services:
      image: nginx:1.15.7
      restart: always
      volumes:
-        - ./mysite.template:/etc/nginx/conf.d/mysite.template
+        - ./mysite.template.conf:/etc/nginx/conf.d/mysite.template.conf
      ports:
        - 80:80
      networks:
