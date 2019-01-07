@@ -55,10 +55,8 @@ services:
   db:
     image: mysql:5.6
     restart: always
-    ports:
-      - 8080:8080
     volumes:
-       -   mydb-data:/var/lib/mysql
+      -   mydb-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: wordpress_new
       MYSQL_USER: wordpress
@@ -67,6 +65,10 @@ services:
   
   phpmyadmin:
      image: phpmyadmin/phpmyadmin:4.7
+     ports:
+      - 8080:8080
+     depends_on:
+       - "db"
      environment:
        PMA_HOST: db
      
