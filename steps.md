@@ -69,7 +69,6 @@ services:
       - 8080:80
      depends_on:
        - "db"
-     command: ["./wait-for-it.sh", "db:3306", "--", "python", "app.py"]
      environment:
        PMA_HOST: db
      
@@ -78,7 +77,13 @@ volumes:
   mydb-data:
 
 ```
+1.3 start
+```
+sudo docker-compose up
 
-1.3
+# inspect the volume
 
+sudo docker volume ls
+
+```
 
