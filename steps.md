@@ -132,6 +132,7 @@ services:
 
   wordpress-new:
     image: wordpress:5.0.0-php7.2-fpm
+    privileged: true
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
@@ -213,6 +214,7 @@ version: '2.0'
 services:
   nginx:
      image: nginx:1.15.7
+     privileged: true
      restart: always
      volumes:
         - ./mysite.template.conf:/etc/nginx/conf.d/mysite.template.conf
