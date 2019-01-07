@@ -84,7 +84,7 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: 123456
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
-  networks:
+    networks:
        -  nfsserver_net1
   phpmyadmin:
      image: phpmyadmin/phpmyadmin:4.7
@@ -94,7 +94,7 @@ services:
        - "db"
      environment:
        PMA_HOST: db
-  networks:
+     networks:
        -  nfsserver_net1
 
 volumes:
