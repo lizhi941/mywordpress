@@ -1,4 +1,4 @@
-# Step one  Build one nfs-server
+# Step one:  Build one nfs-server
 
 1.1 create a docker-compose.yml
 ```
@@ -25,5 +25,14 @@ services:
 
 volumes:
   nfs-share:
+
+```
+1.3 start
+```
+sudo docker-compose up
+
+# inspect the volume
+
+sudo docker volume ls
 
 ```
