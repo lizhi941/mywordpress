@@ -144,4 +144,31 @@ networks:
   nfsserver_net1:
      external: true
 ```
+# Step four:  Build nginx
+1.1 create a docker-compose.yml and ngix,conf
+```
+mkdir nginx
 
+cd nginx
+
+vi docker-compose.yml
+
+```
+
+1.2 copy the content of below into the docker-compose.yml
+
+```
+version: '2.0'
+
+services:
+  nginx:
+     image: nginx:1.15.7
+     restart: always
+     ports:
+       - 80:80
+     networks:
+       -  nfsserver_net1
+networks:
+   nfsserver_net1:
+      external: true
+```
