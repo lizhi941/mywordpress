@@ -242,10 +242,36 @@ sudo docker-compose up
 
 ```
 # entance nginx container
-docker exec -it nginx /bin/bash
+sudo docker exec -it container_name /bin/bash
+
+# mkdir a directory for mount 
+mkdir -p /var/www/html
+
 
 # install some softwave
 apt-get -y update && apt-get -y install rpcbind nfs-common nfs4-acl-tools  vim
 
+# config nfs-clinet
+
+vim /etc/default/nfs-common
+
+NEED_STATD=no
+STATDOPTS=
+NEED_IDMAPD=yes
+NEED_GSSD=no
+
+# start 
+ 
+service rpcbind start  #have error information,but it still work well
+
+service nfs-common start
+
+
+# Configure the mount point in /etc/fstab:
+# you must look for the ip addr before in nfs-server
+
+vim /etc/fstab
+
+192.168.1.1:/  /data  nfs4  sec=sys,noatime  0  0
 
 ```
