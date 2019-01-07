@@ -207,7 +207,7 @@ touch mysite.template
 touch docker-compose.yml
 ```
 
-1.2 copy the content of below into the mysite.template
+1.2 copy the content of below into the mysite.template.conf
 
 ```
  server {
@@ -219,7 +219,7 @@ touch docker-compose.yml
 
     location / {
         #root   /usr/share/nginx/html;
-        root   /var/www/html;
+        root   /var/www/myhtml/new;
         index  index.html index.htm;
     }
 
@@ -241,7 +241,7 @@ touch docker-compose.yml
     # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
     #
     location ~ \.php$ {
-        root           /var/www/html;
+        root           /var/www/html/myhtml/new;
         fastcgi_pass   wordpress-new:9000;#if cantwork work IP instead wordpress-new
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
