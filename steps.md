@@ -241,7 +241,7 @@ touch docker-compose.yml
     # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
     #
     location ~ \.php$ {
-        root           /var/www/html/myhtml/new;
+        root           /var/www/myhtml/new;
         fastcgi_pass   wordpress-new:9000;#if cantwork work IP instead wordpress-new
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
