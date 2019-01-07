@@ -150,12 +150,25 @@ networks:
 mkdir nginx
 
 cd nginx
+touch mysite.template
+touch docker-compose.yml
+```
 
-vi docker-compose.yml
+1.2 copy the content of below into the mysite.template
+
+```
+ location ~ \.php$ {
+        root           /var/www/html;
+        fastcgi_pass   192.168.16.2:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+
 
 ```
 
-1.2 copy the content of below into the docker-compose.yml
+1.3 copy the content of below into the docker-compose.yml
 
 ```
 version: '2.0'
@@ -164,6 +177,8 @@ services:
   nginx:
      image: nginx:1.15.7
      restart: always
+     volumes:
+        - ./mysite.template:/etc/nginx/conf.d/mysite.template
      ports:
        - 80:80
      networks:
