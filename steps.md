@@ -159,7 +159,7 @@ touch docker-compose.yml
 ```
  server {
     listen       80;
-    server_name  localhost;
+    server_name  www.lushatech.com lushatech.com;
 
     #charset koi8-r;
     #access_log  /var/log/nginx/host.access.log  main;
