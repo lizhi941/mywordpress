@@ -191,8 +191,33 @@ mount -a
 
 df -h
 
-```
+# add user and group nginx
 
+useradd -r nginx
+
+chown -R nginx:nginx /var/www/myhtml
+
+# modify the file /usr/local/etc/php-fpm.d/www.conf
+
+vim /usr/local/etc/php-fpm.d/www.conf
+
+user = nginx
+group = nginx
+listen = 172.27.0.5:9000  # the ip you need to use "docker inspect container" to see
+ 
+```
+1.4 restart
+
+```
+#restart the container(in order to make the review work)
+
+sudo docker-compose restart
+
+#entrance to the container and mount again
+
+mount -a
+
+```
 
 
 
@@ -307,7 +332,7 @@ STATDOPTS=
 NEED_IDMAPD=yes
 NEED_GSSD=no
 
-# start 
+# start nfs-clinet
  
 service rpcbind start  #have error information,but it still work well
 
