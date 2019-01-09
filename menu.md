@@ -18,8 +18,9 @@
 * [Step one: Build two volumes and network in docker](/content/step1.md)
 * [Step two: Build nfs-server and copy wordpress](/content/step2.md)
 * [Step three: Build mysql and phpmyadmin](/content/step3.md)
-* [Step four: Build nginx](/content/step4.md)
-* [Step five: Download wordpress and copy it to NFS-SERVER](/content/step5.md)
+* [Step four: Build php-fpm](/content/step4.md)
+* [Step five: Build nginx](/content/step5.md)
+
 
 
 ## Reference
