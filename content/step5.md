@@ -1,4 +1,4 @@
-# Step four：Build nginx
+# Step five：Build nginx
 
 ## 4.1 Create a docker-compose.yml mysite-wordpress.conf
 
