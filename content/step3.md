@@ -1,4 +1,4 @@
-# step three：bulid mysql and phpmyadmin
+# Step three：bulid mysql and phpmyadmin
 
 ## 3.1 Create a docker-compose.yml
 
