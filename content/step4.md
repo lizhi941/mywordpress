@@ -57,11 +57,17 @@ VOLUME /var/www/html
 CMD ["php-fpm"]
 #####content of Dockerfile end######
 ```
-## Build a image lizhi/wordpress/php-7.2-fpm:v1.0
+
+## 2.2 Build a image lizhi/wordpress/php-7.2-fpm:v1.0
+
+```
+sudo docker build -t lizhi/wordpress/php-7.2-fpm:v1.0 .
+
+```
 
 
 
-## 2.2 Create a docker-compose.yml
+## 2.3 Create a docker-compose.yml
 
 
 ```
