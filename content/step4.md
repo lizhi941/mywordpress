@@ -91,5 +91,8 @@ networks:
      external: true
      
  #####content of docker-compose.yml end######
+ 
+ 
+sudo docker-compose up
 
 ```
