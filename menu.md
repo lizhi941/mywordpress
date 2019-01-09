@@ -8,6 +8,7 @@
 * OS system: Ubuntu Description: Ubuntu 16.04.5 LTS Release: 16.04 Codename: xenial
 * Hardware：1 cpu,memory 2G
 * Docker Version:Docker-ce=17.03.2~ce
+* [How to install](/content/how_to_install.md)
 
 ## 2. Steps to bulid a wordpress system
 
