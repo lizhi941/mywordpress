@@ -8,14 +8,14 @@
 * OS system: Ubuntu Description: Ubuntu 16.04.5 LTS Release: 16.04 Codename: xenial
 * Hardware：1 cpu,memory 2G
 * Docker Version:Docker-ce=17.03.2~ce
-* [How to install](/content/how_to_install.md)
+* [How to install docker docker-compose](/content/how_to_install.md)
 
 ## 2. Steps to bulid a wordpress system
 
 * Whole framework
 
     ![Whole framework](/images/steps_whole_framework.png)
-* [Step one: Build two volumes in docker](/content/step1.md)
+* [Step one: Build two volumes and network in docker](/content/step1.md)
 * [Step two: Build nfs-server](/content/step2.md)
 * [Step three: Build mysql and phpmyadmin](/content/step3.md)
 * [Step four: Build nginx](/content/step4.md)
