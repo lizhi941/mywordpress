@@ -1,4 +1,4 @@
-# Step two: Build one nfs-server
+# Step two: Build one nfs-server and copy wordpress
 
 ## 2.1 Create a docker-compose.yml
 
@@ -42,3 +42,6 @@ networks:
 sudo docker-compose up
 
 ```
+## 2.3 download and copy wordpress into nfs-server's share directory
+
+
