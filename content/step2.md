@@ -44,4 +44,34 @@ sudo docker-compose up
 ```
 ## 2.3 download and copy wordpress into nfs-server's share directory
 
+```
+cd /home/lizhi  # for example the user is lizhi
+
+cd nfs-server
+
+# Download wordpress and tar 
+curl -o   wordpress-5.0.2.tar.gz        https://wordpress.org/wordpress-5.0.2.tar.gz
+tar -xzvf  wordpress-5.0.2.tar.gz  
+mv wordpress   wordpress5.0.2
+
+
+# Entrance the container and mkdir wordpress
+sudo docker exec -it container_id /bin/bash
+cd /nfsshare
+mkdir wordpress
+exit       # exit the container  back to the host
+
+
+# copy the wordpress5.0.2  into the  container
+sudo docker cp /home/lizhi/nfs-server/wordpress5.0.2   container_id:/nfsshare/wordpress/
+
+# verify
+sudo docker exec -it container_id /bin/bash
+cd /nfsshare/wordpress/
+ls -al
+#####show#####
+wordpress5.0.2
+
+
+```
 
