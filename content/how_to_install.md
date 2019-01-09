@@ -95,4 +95,8 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 ```
+### 4. Install the Docker-compose
 
+```
+sudo apt-get install docker-compose
+```
