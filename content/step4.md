@@ -72,7 +72,6 @@ sudo docker build -t lizhi/wordpress/php-7.2-fpm:v1.0 .
 
 ```
 cd /home/lizhi  # for example the user is lizhi
-mkdir php-fpm
 cd php-fpm
 vi docker-compose.yml
 
