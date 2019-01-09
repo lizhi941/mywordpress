@@ -92,3 +92,62 @@ networks:
    net1:
       external: true
 ```
+
+
+## 4.2 start nginx container
+
+```
+cd /home/lizhi  # for example the user is lizhi
+sudo docker-compose up 
+```
+
+
+## 4.3 Install nfs-clinet and mount in the nginx container
+
+```
+
+sudo docker exec -it container_id /bin/bash
+
+# install some softwave
+apt-get -y update && apt-get -y install rpcbind nfs-common nfs4-acl-tools  vim
+
+# config nfs-clinet
+vim /etc/default/nfs-common
+
+######contnet of nfs-common start######
+NEED_STATD=no
+STATDOPTS=
+NEED_IDMAPD=yes
+NEED_GSSD=no
+######contnet of nfs-common end######
+
+# start service
+service rpcbind start      #have error information,but it still work well
+service nfs-common start
+
+# Configure the mount point in /etc/fstab:
+# you must look for the ip addr before in nfs-server
+
+vim /etc/fstab
+######contnet of fstab start######
+172.18.0.2:/wordpress  /var/www/html  nfs4  sec=sys,noatime  0  0
+######contnet of fstab end######
+
+# mount and vertify
+mkdir -p /var/www/html
+
+mount -a
+
+df -h
+
+# add user and group nginx
+
+chown -R nginx:nginx /var/www/html
+
+#####note start######
+Here we changed the /var/www/html of user and group to nginx:nginx.
+Because the nginx is run in nginx:nginx.
+But it is only effect in nginx container and dont change the user and group in the nfs-server
+and dont effect the other container that mount on the nfs-server.
+#####note end######
+```
