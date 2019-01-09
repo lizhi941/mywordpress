@@ -3,6 +3,9 @@
 ## 1.1 Create a docker-compose.yml
 
 ```
+#entrance the user home directory
+cd /home/lizhi  # for example the user is lizhi
+
 mkdir nfs-server
 
 cd nfs-server
@@ -19,12 +22,17 @@ services:
      restart: always
      privileged: true
      volumes:
-       -   vol2-nfs:/nfsshare
+       -   vol2-nfs-data:/nfsshare
      environment:
        SHARED_DIRECTORY: /nfsshare
      networks:
        -  net1
+volumes:
+     vol2-nfs-data:
 
+networks:
+    net1:
+       external: true
 ```
 
 ## 1.2 start 
