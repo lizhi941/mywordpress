@@ -29,6 +29,7 @@ services:
        -  net1
 volumes:
      vol2-nfs-data:
+        external: true
 
 networks:
     net1:
