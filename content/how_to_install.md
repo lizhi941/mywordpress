@@ -30,7 +30,7 @@ Pricing for other VM sizes
 
 * Click the button "Create" and after a few minutes the VM will run.
 
-## how to install docker17.03.2
+## how to install Docker17.03.2 Docker-compose
 
 Connecting virtual machines via SSH
 
