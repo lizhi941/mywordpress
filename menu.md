@@ -14,4 +14,12 @@
 * Whole framework
 
     ![Whole framework](/images/steps_whole_framework.png)
-* [Step one: Build one nfs-server](/content/step1.md)
+* [Step one: Build two volumes in docker](/content/step1.md)
+* [Step two: Build nfs-server](/content/step2.md)
+* [Step three: Build mysql and phpmyadmin](/content/step3.md)
+* [Step four: Build nginx](/content/step4.md)
+* [Step five: Download wordpress and copy it to NFS-SERVER](/content/step5.md)
+
+
+## Reference
+1. [Nginx动静分离操作讲解](http://www.php.cn/php-weizijiaocheng-390516.html)
