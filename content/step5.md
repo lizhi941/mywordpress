@@ -57,7 +57,7 @@ server {
         root           /var/www/html/wordpress5.0.2;
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass   172.27.0.7:9000;
+        fastcgi_pass   php-fpm:9000;#ip or container name 
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         include        fastcgi_params;
