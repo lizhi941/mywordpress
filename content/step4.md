@@ -96,3 +96,55 @@ networks:
 sudo docker-compose up
 
 ```
+
+## 2.4 Install nfs-clinet and mount in the php-fpm container
+
+```
+sudo docker exec -it container_id /bin/bash
+
+# install some softwave
+apt-get -y update && apt-get -y install rpcbind nfs-common nfs4-acl-tools  vim
+
+# config nfs-clinet
+vim /etc/default/nfs-common
+
+######contnet of nfs-common start######
+NEED_STATD=no
+STATDOPTS=
+NEED_IDMAPD=yes
+NEED_GSSD=no
+######contnet of nfs-common end######
+
+# start service
+service rpcbind start      #have error information,but it still work well
+service nfs-common start
+
+# Configure the mount point in /etc/fstab:
+# you must look for the ip addr before in nfs-server
+
+vim /etc/fstab
+######contnet of fstab start######
+172.18.0.2:/wordpress  /var/www/html  nfs4  sec=sys,noatime  0  0
+######contnet of fstab end######
+
+# mount and vertify
+mount -a
+
+df -h
+
+# add user and group www-data
+
+chown -R www-data:www-data /var/www/html
+
+#####note start######
+Here we changed the /var/www/html of user and group to www-data:www-data.
+Because the php-fpm is run in www-data:www-data.
+But it is only effect in php-fpm container and dont change the user and group in the nfs-server
+and dont effect the other container that mount on the nfs-server.
+#####note end######
+
+
+
+
+```
+
