@@ -33,7 +33,10 @@ server {
 
 
     location ~* ^.+\.(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|rss|atom|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)$ {
-            access_log off; log_not_found off; expires max;
+            root   /var/www/html/wordpress5.0.2;
+            access_log off; 
+            log_not_found off; 
+            expires max;
 }
 
     #error_page  404              /404.html;
