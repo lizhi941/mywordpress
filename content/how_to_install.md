@@ -76,7 +76,7 @@ sudo apt-get update
 
 ```
 
-### Install the Docker-ce17.3.2
+### 3. Install the Docker-ce17.3.2
 
 ```
 # list the versions of docker-ce can be use
