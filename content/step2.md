@@ -1,6 +1,6 @@
-# Step one: Build one nfs-server
+# Step two: Build one nfs-server
 
-## 1.1 Create a docker-compose.yml
+## 2.1 Create a docker-compose.yml
 
 ```
 #entrance the user home directory
@@ -36,7 +36,7 @@ networks:
        external: true
 ```
 
-## 1.2 start 
+## 2.2 start 
 
 ```
 sudo docker-compose up
