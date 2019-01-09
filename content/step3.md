@@ -19,7 +19,7 @@ services:
     image: mysql:5.6
     restart: always
     volumes:
-      -   vol2-mysql-data:/var/lib/mysql
+      -   vol1-mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     networks:
