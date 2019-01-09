@@ -20,6 +20,7 @@
 * [Step three: Build mysql and phpmyadmin](/content/step3.md)
 * [Step four: Build php-fpm](/content/step4.md)
 * [Step five: Build nginx](/content/step5.md)
+* [Step five: config wordpress](/content/step6.md)
 
 
 
