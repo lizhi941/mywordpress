@@ -35,7 +35,7 @@ services:
      networks:
        -  net1
 volumes:
-     vol2-mysql-data:
+     vol1-mysql-data:
         external: true
 
 networks:
