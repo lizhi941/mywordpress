@@ -1,4 +1,4 @@
-# Create two volumes and one network in docker
+# Step one: create two volumes and one network in docker
 
 Inorder to providing persistent data，create two volumes，one for mysql: vol1-mysql-data, another for NFS: vol2-nfs-data.
 Inorder to communictae in the same network,create netwaork: net1.
