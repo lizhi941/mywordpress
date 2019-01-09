@@ -6,9 +6,12 @@
 
 * Cloud Plat：Microsoft azure 
 * OS system: Ubuntu Description: Ubuntu 16.04.5 LTS Release: 16.04 Codename: xenial
+* Hardware：1 cpu,memory 2G
 * Docker Version:Docker-ce=17.03.2~ce
 
 ## 2. Steps to bulid a wordpress system
 
+* Whole framework
 
-[Step one: Build one nfs-server](/content/step1.md)
+    ![Whole framework](/images/steps_whole_framework.png)
+* [Step one: Build one nfs-server](/content/step1.md)
