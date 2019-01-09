@@ -26,3 +26,4 @@
 
 ## Reference
 1. [Nginx动静分离操作讲解](http://www.php.cn/php-weizijiaocheng-390516.html)
+2. [Centos7+nginx+mysql++php-fpm+wordpress](http://www.testpub.cn/t/81)
