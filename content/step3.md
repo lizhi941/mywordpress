@@ -31,7 +31,7 @@ services:
      depends_on:
        - "db"
      environment:
-       PMA_HOST: db
+       PMA_ARBITRARY: 1
      networks:
        -  net1
 volumes:
