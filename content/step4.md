@@ -121,10 +121,12 @@ service nfs-common start
 
 # Configure the mount point in /etc/fstab:
 # you must look for the ip addr before in nfs-server
-
+#you can also use the service name(for example nfs-server) instead of the ip,because they are in the same network.
 vim /etc/fstab
 ######contnet of fstab start######
 172.18.0.2:/wordpress  /var/www/html  nfs4  sec=sys,noatime  0  0
+
+
 ######contnet of fstab end######
 
 # mount and vertify
