@@ -1,4 +1,4 @@
-# How to install
+# How to install Docker in Azure-cloud  with Ubuntu Server 16.04 LTS
 
 ## Create a virtual machine in the Azure-cloud
 
@@ -100,3 +100,81 @@ sudo systemctl start docker
 ```
 sudo apt-get install docker-compose
 ```
+
+# How to install Docker in VM  with centos7 in my physical machine
+
+[Get Docker CE for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+
+### Uninstall old versions
+
+```
+$ sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+```
+ 
+
+
+###   Install using the repository
+
+#### Set up the repository
+
+1. Install required packages. yum-utils provides the yum-config-manager utility, and device-mapper-persistent-data and lvm2 are required by the devicemapper storage driver.
+
+```
+$ sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+```
+
+2. Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well.
+
+```
+$ sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+```
+3. Optional: But here we are not enable the "edge" and "test"
+Enable the edge and test repositories. These repositories are included in the docker.repo file above but are disabled by default. You can enable them alongside the stable repository.
+
+```
+$ sudo yum-config-manager --enable docker-ce-edge
+
+$ sudo yum-config-manager --enable docker-ce-test
+
+```
+You can disable the edge or test repository by running the yum-config-manager command with the --disable flag. To re-enable it, use the --enable flag. The following command disables the edge repository.
+
+```
+$ sudo yum-config-manager --disable docker-ce-edge
+```
+Note: Starting with Docker 17.06, stable releases are also pushed to the edge and test repositories.
+
+
+#### Install Docker CE（17.03.2，because rancher2.x only support this version ）
+
+1. To install a specific version of Docker CE, list the available versions in the repo, then select and install:
+a. List and sort the versions available in your repo. This example sorts results by version number, highest to lowest, and is truncated:
+
+```
+$ yum list docker-ce --showduplicates | sort -r
+
+```
+
+2. Install a specific version by its fully qualified package name, which is the package name (docker-ce) plus the version string (2nd column) up to the first hyphen, separated by a hyphen (-), for example, 
+
+```
+
+$ sudo yum install docker-ce-17.03.2.ce
+
+```
+
+
+
