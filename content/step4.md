@@ -1,6 +1,6 @@
 # Step four: Build php-fpm
 
-## 2.1 Create a Dockerfile file
+## 4.1 Create a Dockerfile file
 
 inorder to install some extensions that need when run wordpress,so build a new image under the php:7.2-fpm images.
 
@@ -58,7 +58,7 @@ CMD ["php-fpm"]
 #####content of Dockerfile end######
 ```
 
-## 2.2 Build a image lizhi/wordpress/php-7.2-fpm:v1.0
+## 4.2 Build a image lizhi/wordpress/php-7.2-fpm:v1.0
 
 ```
 sudo docker build -t lizhi/wordpress/php-7.2-fpm:v1.0 .
@@ -67,7 +67,7 @@ sudo docker build -t lizhi/wordpress/php-7.2-fpm:v1.0 .
 
 
 
-## 2.3 Create a docker-compose.yml
+## 4.3 Create a docker-compose.yml
 
 
 ```
@@ -97,7 +97,7 @@ sudo docker-compose up
 
 ```
 
-## 2.4 Install nfs-clinet and mount in the php-fpm container
+## 4.4 Install nfs-clinet and mount in the php-fpm container
 
 ```
 sudo docker exec -it container_id /bin/bash
@@ -145,8 +145,6 @@ But it is only effect in php-fpm container and dont change the user and group in
 and dont effect the other container that mount on the nfs-server.
 #####note end######
 
-
-
-
 ```
 
+ #  if you want to run a different php-fpm version(for example php5.6-fpm)，you can use php5.6-fpm instead of php7.2-fpm in the steps above.
