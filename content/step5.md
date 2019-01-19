@@ -13,7 +13,8 @@ cd nginx
 touch mysite-wordpress.conf
 touch docker-compose.yml
 
-
+## if you run different wordpress in one site ,you can write more server{......}  in one mysite-wordpress.conf.
+## and each server{......} is one website, use themselves domain , root directory, php-fpm version. 
 #####content of mysite-wordpress.conf######
 server {
     listen       80;
@@ -130,6 +131,7 @@ service nfs-common start
 
 # Configure the mount point in /etc/fstab:
 # you must look for the ip addr before in nfs-server
+#you can also use the service name(for example nfs-server) instead of the ip,because they are in the same network.
 
 vim /etc/fstab
 ######contnet of fstab start######
