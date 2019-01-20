@@ -179,7 +179,12 @@ sudo systemctl daemon-reload
 sudo service docker start
 
 ```
+4. vertify
 
+```
+sudo docker info
+```
+if it is work, you will see "Docker Root Dir: /mnt/sdc/lizhi/docker-data"
 
 
 
