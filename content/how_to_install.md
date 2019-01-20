@@ -145,7 +145,44 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 ```
-### 4. Install the Docker-compose
+
+### how to change the default storage directory of the docker
+
+1. Stop the docker service
+
+```
+sudo service docker stop
+```
+
+2. To Modify the config file 
+
+In ubuntu, the config file is docker-overlay.conf 
+
+
+
+```
+cd /etc/systemd/system/docker.service.d  # if the directory is no exist, make it.
+
+sudo vim docker-overlay.conf # if the file is no exist, make it.
+
+#add this row
+[Service]
+ExecStart=/usr/bin/dockerd --graph="/mnt/sdc/lizhi/docker-data" --storage-driver=overlay
+
+```
+3. reload config file and restart docker service
+
+```
+sudo systemctl daemon-reload
+
+sudo service docker start
+
+```
+
+
+
+
+### 5. Install the Docker-compose
 
 ```
 sudo apt-get install docker-compose
