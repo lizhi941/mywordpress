@@ -167,6 +167,7 @@ sudo vim docker-overlay.conf # if the file is no exist, make it.
 
 #add this row
 [Service]
+ExecStart=
 ExecStart=/usr/bin/dockerd --graph="/mnt/sdc/lizhi/docker-data" --storage-driver=overlay
 
 ```
