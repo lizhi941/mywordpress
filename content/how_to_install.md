@@ -1,5 +1,6 @@
 # How to install Docker in Azure-cloud  with Ubuntu Server 16.04 LTS
 
+
 ## Create a virtual machine in the Azure-cloud
 
 * [Azure-cloud](https://portal.azure.com)
@@ -29,6 +30,55 @@ Pricing for other VM sizes
 
 
 * Click the button "Create" and after a few minutes the VM will run.
+
+
+## add a disk and mount on
+
+[Azure上如何在Linux下挂载数据磁盘](https://www.cnblogs.com/cloudapps/p/4996276.html)
+
+Because the Azure Linux VM only have 30GB default disk, so we need more disk.
+
+### 1. Add a disk 
+
+Select "Disks tab" On the dashboard of the Linux VM  that you want to add a disk,
+
+Then click "Add data disk", and make some select some options (for example Name, Size ).
+
+
+### 2. Login in VM and check weather the disk is ok or not
+
+```
+sudo fdisk -l
+
+```
+if the disk is created , you will see the Disk(for example /dev/sdc).
+
+### 3. Create new partition and file system 
+
+```
+sudo fdisk /dev/sdc
+
+#follow the instrument and when finished , you type "w" to exit the operation.
+#like this "Command (m for help): w"
+```
+### 4. Format the disk
+
+
+```
+sudo mkfs -t ext4 /dev/sdc
+```
+
+### 5. mount
+
+```
+sudo mkdir    /mnt/sdc
+
+sudo mount /dev/sdc   /mnt/sdc
+
+```
+
+
+
 
 ## how to install Docker17.03.2 Docker-compose
 
