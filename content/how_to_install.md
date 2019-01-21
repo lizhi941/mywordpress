@@ -269,5 +269,8 @@ $ sudo yum install docker-ce-17.03.2.ce
 
 ```
 
+# How to install Docker in Aliyun with centos
+
+[Get Docker CE for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
 
 
