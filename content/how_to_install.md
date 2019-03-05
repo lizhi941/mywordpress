@@ -102,7 +102,7 @@ sudo vi /etc/fstab
 add the cotent which show below in the end of the file
 
 
-/dev/sdc     /mnt/sdc    ext4     defaults       0 0
+/dev/sdc     /mnt/sdc    ext4     defaults       0 2
 
 
 
@@ -114,9 +114,8 @@ add the cotent which show below in the end of the file
 第二列为挂载点 
 第三列为文件系统或分区的类型 
 第四列为文件系统参数，即挂载选项，详细参考man mount.命令，defaults就没有问题，除非你有特殊需求； 
-第五列为dump选项，设置是否让备份程序dump备份文件系统。0：不备份，1：备份，2：备份(但比1重要性小)。设置了该参数后，Linux中使用dump命令备份系统的时候就可以备份相应设置的挂载点了。 
-第六列为是否在系统启动的时候，用fsck检验分区,告诉fsck程序以什么顺序检查文件系统。因为有些挂载点是不需要检验的，比如：虚拟内存swap、/proc等。0：不检验，1：要检验，2要检验(但比1晚检验)，一般根目录设置为1，其他设置为2就可以了。
-
+第五列为:0表示开机不检查磁盘，1表示开机检查磁盘
+第六列为:0表示交换分区，1代表启动分区（Linux），2表示普通分区.一般选2
 
 ```
 
