@@ -58,9 +58,21 @@ if the disk is created , you will see the Disk(for example /dev/sdc).
 ```
 sudo fdisk /dev/sdc
 
-#follow the instrument and when finished , you type "w" to exit the operation.
-#like this "Command (m for help): w"
+#press "n":  add a new partition
+#then press "p": select to create primary partition
+
+#then press "enter": use the default value
+
+#at last ,press "w" :to save the config,.
+
+#so, we create one primary partition
+
+
 ```
+
+
+
+
 ### 4. Format the disk
 
 
