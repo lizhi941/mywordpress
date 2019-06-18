@@ -232,7 +232,26 @@ if it is work, you will see "Docker Root Dir: /mnt/sdc/lizhi/docker-data"
 ### 5. Install the Docker-compose
 
 ```
+#建议用二进制方式安装比较新的版本
+
+
+#如果用apt-get安装过，要先卸载
+apt-get remove docker-compose
+#首先下载二进制版本这里是1.23.1版本
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+#授权 
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+
+
+
+
+#这种方式安装的docker-compose版本较低
 sudo apt-get install docker-compose
+
+
+
 ```
 
 # How to install Docker in VM  with centos7 in my physical machine
@@ -293,7 +312,7 @@ Note: Starting with Docker 17.06, stable releases are also pushed to the edge an
 
 
 #### Install Docker CE（17.03.2，because rancher2.x only support this version ）
-
+* 由于rancher开始支持18.06.x，所以可以考虑安装这个版本。
 1. To install a specific version of Docker CE, list the available versions in the repo, then select and install:
 a. List and sort the versions available in your repo. This example sorts results by version number, highest to lowest, and is truncated:
 
