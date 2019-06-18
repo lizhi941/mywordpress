@@ -141,7 +141,7 @@ Codename:       xenial
 
 ```
 # remove
-sudo apt-get remove docker docker-engine docker.io
+sudo apt-get remove docker docker-engine docker.io docker-ce
 
 # set repertory
 sudo apt-get update
